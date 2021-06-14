@@ -18,10 +18,10 @@ public class UsersInfoContributor implements InfoContributor {
     @Override
     public void contribute(Info.Builder builder) {
         Map<String, Object> userDetails = new HashMap();
-        userDetails.put("total", this.userRepository.count());
-        userDetails.put("active", this.userRepository.countByActive(true));
-        userDetails.put("inactive", this.userRepository.countByActive(false));
-        builder.withDetail("users", userDetails);
+            userDetails.put("total", this.userRepository.count());
+            userDetails.put("actives", this.userRepository.countByActive(true));
+            userDetails.put("inactives", this.userRepository.countByActive(false));
+        builder.withDetail("userDetails", userDetails);
     }
 
 }

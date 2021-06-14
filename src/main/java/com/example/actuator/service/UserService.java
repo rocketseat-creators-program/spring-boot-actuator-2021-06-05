@@ -29,5 +29,4 @@ public class UserService {
         this.userRepository.delete(databaseUser);
     }
 
-
 }

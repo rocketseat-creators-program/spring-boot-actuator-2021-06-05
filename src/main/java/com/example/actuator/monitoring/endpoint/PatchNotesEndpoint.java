@@ -19,8 +19,7 @@ public class PatchNotesEndpoint {
         List<String> notes = new ArrayList<>(Arrays.asList(
                 "Added healthcheck for internet connection.",
                 "Added custom info about user detail.",
-                "HttpTrace endpoint released.",
-                "Users has status attribute."));
+                "HttpTrace endpoint released."));
         this.patchNotes.put("v1", notes);
     }
 
@@ -30,12 +29,12 @@ public class PatchNotesEndpoint {
     }
 
     @ReadOperation
-    public List<String> getNotesByVersion(@Selector String version) {
+    public List<String> getByVersion(@Selector String version) {
         return this.patchNotes.get(version);
     }
 
     @WriteOperation
-    public void addPatchNotes(@Selector String version, @Selector String notes) {
+    public void addPatchNote(@Selector String version, @Selector String notes) {
         if (ObjectUtils.isEmpty(this.patchNotes.get(version))) {
             this.patchNotes.put(version, Arrays.stream(notes.split(",")).collect(Collectors.toList()));
         } else {
